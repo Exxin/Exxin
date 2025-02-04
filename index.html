@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Portfolio Webpage Example</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="https://i.postimg.cc/9fqYVvxh/logo.png" type="image/x-icon">
+</head>
+<body>
+    <main>
+        <div class="cubes"></div>
+        <div id="customCursor" class="cursor" style="translate: none; rotate: none; scale: none; transform: translate(1276px, 378px);">
+            <svg class="pointerCursor" width="50" height="55" viewBox="0 0 120 133.5" style="display: block;">
+                <path d="m115.3 110.3-3.8-14.4-7.1 1.9-3.7-13.8 8.9-2.4L120 71.2l-1.9-7.3-1.9-7-7.1 1.8-1.9-7-7 1.9-1.9-7.1-7.1 1.9-1.9-7.1-7.1 1.9-1.8-7-7.1 1.9-1.9-7.1-7.1 1.9-1.9-7.1-7 1.9-1.9-7-7.1 1.9-1.9-7.1-7 1.9-1.9-7.1-7.1 1.9-1.9-7-7 1.9L17.7 0l-7.3 1.9L0 12.4l32.2 120.2 7.3-1.9 7-1.9L57 118.3l-.9-3.1 5.8-5.7.2-.1-.8-3.2 1.3-1.3 3 11.2 7.1-1.9 3.8 14.1 7-1.9 1.9 7.1 14.3-3.9 10.5-10.4-.9-3.1 5.8-5.8h.2z"></path>
+                <path d="m86.5 121.3-7.1 1.9-3.8-14.1-7 1.9-3.8-14.2-8.2 8.2.8 3-5.9 5.9.8 3.2-7.9 7.9-9.2 2.5L4.7 13.6l7.9-7.9 2.1-.6 1.9 7.1 7.1-1.9 1.9 7 7-1.9 1.9 7.1 7.1-1.9 1.9 7.1 7-1.9 1.9 7 7.1-1.8 1.9 7 7.1-1.9 1.8 7.1 7.1-1.9 1.9 7 7.1-1.8 1.8 7 7.1-1.9 1.9 7.1 7.1-1.9 1.9 7.1 7-1.9 2.1 7.9-7.9 8L95.6 81l5.9 21.9 7.1-1.9 2 7.9-5.9 5.9.8 3.2-7.9 7.9-9.2 2.5-1.9-7.1z" style="fill:#fff"></path>
+                <path d="m109 58.9-1.9-7.1-7.1 1.9-1.9-7.1-7.1 1.9-1.9-7.1-7.1 1.9-1.9-7.1-7.1 1.9-1.9-7.1-7.1 1.9-1.9-7.1-7.1 1.9-1.9-7.1-7.1 1.9-1.9-7.1-7.1 1.9-1.9-7.1-7.1 1.9L26.1 5 19 6.9 17.6.1 10.5 2l32.2 120 7.1-1.9 7.1-1.9-1.9-7.1 7.1-1.9-1.9-7.1 7.1-1.9-1.9-7.1 7.1-1.9 3.8 14.1 7.1-1.9 3.8 14.1 7.1-1.9 1.9 7.1 14.1-3.8-1.9-7.1 7.1-1.9-3.8-14.1-7.1 1.9-3.8-14.1-7.1 1.9-1.9-7.1 28.2-7.6-1.9-7.1-1.9-7.1-7.1 1.9Z" style="fill:#fff"></path>
+                <path d="m49.8 120.2-7.1 1.9L10.6 2l7-1.9 32.2 120ZM26.6 5.3l-7.1 1.9 1.9 7.1 7.1-1.9-1.9-7.1Zm9 5.2-7.1 1.9 1.9 7.1 7.1-1.9-1.9-7.1Zm9 5.2-7.1 1.9 1.9 7.1 7.1-1.9-1.9-7.1Zm9 5.2-7.1 1.9 1.9 7.1 7.1-1.9-1.9-7.1Zm9 5.2L55.5 28l1.9 7.1 7.1-1.9-1.9-7.1Zm9 5.2-7.1 1.9 1.9 7.1 7.1-1.9-1.9-7.1Zm9 5.2-7.1 1.9 1.9 7.1 7.1-1.9-1.9-7.1Zm9 5.2-7.1 1.9 1.9 7.1 7.1-1.9-1.9-7.1Zm9 5.2-7.1 1.9 1.9 7.1 7.1-1.9-1.9-7.1Zm9 5.2-7.1 1.9 1.9 7.1 7.1-1.9-1.9-7.1Zm9 5.2-7.1 1.9 1.9 7.1 7.1-1.9-1.9-7.1Zm1.9 7.1-35.3 9.5 1.9 7.1 35.3-9.5-1.9-7.1ZM92.1 79 85 80.9l1.9 7.1 7.1-1.9-1.9-7.1Zm-21.2 5.7-7.1 1.9 1.9 7.1 7.1-1.9-1.9-7.1Zm9 5.2-7.1 1.9 3.8 14.1 7.1-1.9-3.8-14.1Zm10.8 12.2-7.1 1.9 3.8 14.1 7.1-1.9-3.8-14.1Zm17.9 10.3-14.1 3.8 1.9 7.1 14.1-3.8-1.9-7.1ZM101 84.2l-7.1 1.9 3.8 14.1 7.1-1.9-3.8-14.1Zm10.8 12.2-7.1 1.9 3.8 14.1 7.1-1.9-3.8-14.1Zm-46.1-2.8-7.1 1.9 1.9 7.1 7.1-1.9-1.9-7.1Zm-5.2 9-7.1 1.9 1.9 7.1 7.1-1.9-1.9-7.1Zm-5.2 9-7.1 1.9 1.9 7.1 7.1-1.9-1.9-7.1Z"></path>
+            </svg>
+            <svg class="pointerHand" width="55" height="65" viewBox="0 0 120 141.5" style="display: none;">
+                <path d="M118.8 97.8 115 83.4l4.8-4.8h.2l-11.1-41.4-5.9 1.6-1.5-5.9-5.9 1.6-1.6-5.9-11.8 3.1-1.6-5.8L63 30.6l-1.6-5.9-11.8 3.2-6.3-23.6-5.9 1.6L35.9 0l-12 3.2-4.3 7.5-8.7 8.7L22 60.5 8.7 64.1 0 72.7l1.6 6.1 3.2 11.8 5.9-1.6 1.5 5.9 5.9-1.6 3.2 11.8 5.9-1.6 3.1 11.8 5.9-1.6 3.2 11.8 5.8-1.6 3.2 11.8 1.6 5.8 52.9-14.1 6.1-1.7 8.7-8.7-3.9-14.4 4.8-4.7.2-.1z"></path>
+                <path d="m47.7 119.6-5.9 1.6-3.1-11.8-5.9 1.6-3.2-11.8-5.9 1.6L20.6 89l-5.9 1.6-1.6-5.9-5.9 1.6-3.3-12.5 6.6-6.6L26.2 63 14.8 20.4l8.7-8.6 9.9-7.5 1.6 5.8 5.9-1.5 6.3 23.5L58.9 29l1.6 5.8 17.7-4.7 1.6 5.9 11.7-3.2 1.6 5.9 5.9-1.6 1.6 5.9 5.9-1.5 9.6 35.9-5 5 3.8 14.2-4.9 5 3.8 14.4-6.6 6.6-54.8 14.7-4.7-17.7z" style="fill:#fff"></path>
+                <path d="m103 38.9-1.6-5.9-5.9 1.6-1.6-5.9-11.8 3.2-1.6-5.9-17.7 4.7-1.6-5.9L49.4 28 43.1 4.5l-5.9 1.6-1.4-6L24 3.3l1.6 5.9-5.9 1.6 14.2 53-5.9 1.6-1.6-5.9-17.7 4.7 1.6 5.9.8 2.9 2.4 8.8 5.9-1.6 1.6 5.9 5.9-1.6 3.2 11.8 5.9-1.6 3.2 11.8 5.9-1.6 3.2 11.8 5.9-1.6 3.2 11.8 1.6 5.9 53-14.2 5.9-1.6-4.7-17.7 5.9-1.6-4.7-17.7 5.9-1.6-11-41.2-5.9 1.6Z" style="fill:#fff"></path>
+                <path d="m44.5 79.8-5.9 1.6-18.9-70.7 5.9-1.6 18.9 70.6ZM35.8.1 24 3.3l1.6 5.9L37.4 6 35.8.1Zm7.5 4.3L37.4 6l14.2 53 5.9-1.6-14.2-53Zm18.1 20.4L49.6 28l1.6 5.9L63 30.7l-1.6-5.9Zm9 10.2-5.9 1.6 4.7 17.7 5.9-1.6L70.4 35Zm10.2-9-17.7 4.7 1.6 5.9 17.7-4.7-1.6-5.9Zm9 10.2-5.9 1.6 4.7 17.6 5.9-1.6-4.7-17.6Zm4.3-7.5-11.8 3.2 1.6 5.9 11.8-3.2-1.6-5.9Zm7.5 4.3-5.9 1.6 1.6 5.9 5.9-1.6-1.6-5.9Zm7.5 4.3-5.9 1.6 11 41.2 5.9-1.6-11-41.2Zm5.2 42.8-5.9 1.6 4.7 17.7 5.9-1.6-4.7-17.7Zm-1.2 19.2-5.9 1.6 4.7 17.7 5.9-1.6-4.7-17.7Zm-2.7 13.3-53 14.2 1.6 5.9 53-14.2-1.6-5.9ZM33.9 63.7 28 65.3l1.6 5.9 5.9-1.6-1.6-5.9Zm-7.5-4.3L8.7 64.1l1.6 5.9L28 65.3l-1.6-5.9Zm-10.2 9L10.3 70l3.2 11.8 5.9-1.6-3.2-11.8Zm9 10.2-5.9 1.6 1.6 5.9 5.9-1.6-1.6-5.9Zm7.5 4.3-5.9 1.6L30 96.3l5.9-1.6-3.2-11.8Zm9 10.2-5.9 1.6 3.2 11.8 5.9-1.6-3.2-11.8Zm9 10.2-5.9 1.6 3.2 11.8 5.9-1.6-3.2-11.8Zm9 10.2-5.9 1.6 3.2 11.8 5.9-1.6-3.2-11.8Z"></path>
+            </svg> 
+            <img width="55" height="65" class="pointerHand2" src="../assets/img/hoverCursor2.svg" alt="cursor pixel hand" style="display: none;">
+        </div>
+        <aside class="sidebar " data-sidebar>
+            <div class="sidebar-info">
+                <figure class="avatar-box">
+                    <img src="https://p.djinni.co/c0/a1384395d68e7c18e53868f41122ec/0059_400.jpg?15:39:06" alt="avatar" width="80">
+                </figure>
+
+                <div class="info-content">
+                    <h1 class="name" title="Richard Hanrick">Bohdan Teteriuk</h1>
+                    <p class="title">Front-end Developer</p>
+                </div>
+
+                <button class="info-more-btn" data-sidebar-btn>
+                    <span>Show Contacts</span>
+                    <ion-icon name="chevron-down"></ion-icon>
+                </button>
+            </div>
+
+            <div class="sidebar-info-more">
+                <div class="separator"></div>
+
+                <ul class="contacts-list">
+                    <li class="contact-item">
+                        <div class="icon-box">
+                            <ion-icon name="mail-outline"></ion-icon>
+                        </div>
+
+                        <div class="contact-info">
+                            <p class="contact-title">Email</p>
+
+                            <a href="mailto:richard@example.com" class="contact-link">exxinblood@gmail.com</a>
+                        </div>
+                    </li>
+
+                    <li class="contact-item">
+                        <div class="icon-box">
+                            <ion-icon name="phone-portrait-outline"></ion-icon>
+                        </div>
+
+                        <div class="contact-info">
+                            <p class="contact-title">Phone</p>
+
+                            <a href="tel:+12133522795" class="contact-link">+38 (095) 213-1170</a>
+                        </div>
+                    </li>
+
+                    <li class="contact-item">
+                        <div class="icon-box">
+                            <ion-icon name="calendar-outline"></ion-icon>
+                        </div>
+
+                        <div class="contact-info">
+                            <p class="contact-title">Birthday</p>
+
+                            <time datetime="1982-06-23">July 01, 1998</time>
+                        </div>
+                    </li>
+
+                    <li class="contact-item">
+                        <div class="icon-box">
+                            <ion-icon name="location-outline"></ion-icon>
+                        </div>
+
+                        <div class="contact-info">
+                            <p class="contact-title">Location</p>
+
+                            <address>Kyiv, Ukraine</address>
+                        </div>
+                    </li>
+                </ul>
+
+                <div class="separator"></div>
+
+                <ul class="social-list">
+                    <li class="social-item"><a href="#" class="social-link"><ion-icon name="logo-facebook"></ion-icon></a></li>
+                    <li class="social-item"><a href="#" class="social-link"><ion-icon name="logo-twitter"></ion-icon></a></li>
+                    <li class="social-item"><a href="#" class="social-link"><ion-icon name="logo-instagram"></ion-icon></a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <div class="main-content">
+            <nav class="navbar">
+                <ul class="navbar-list">
+                    <li class="navbar-item"><button class="navbar-link active" data-nav-link>About</button></li>
+                    <li class="navbar-item"><button class="navbar-link" data-nav-link>Resume</button></li>
+                    <li class="navbar-item"><button class="navbar-link" data-nav-link>Portfolio</button></li>
+                    <!-- <li class="navbar-item"><button class="navbar-link" data-nav-link>Blog</button></li> -->
+                    <!-- <li class="navbar-item"><button class="navbar-link" data-nav-link>Contact</button></li> -->
+                </ul>
+            </nav>
+
+            <article class="about active" data-page="about">
+                <header>
+                    <h2 class="h2 article-title">About me</h2>
+                </header>
+
+                <section class="about-text">
+                    <p>I am a person with wide-ranging interests and a strong drive for personal development. I am interested in psychology, but I am also considering opportunities in the field of management, as I am always looking for new ways to express myself and grow. I have experience in web development, where I actively use HTML, CSS, JavaScript, and React. I work on technically complex projects, which constantly help me improve my skills.</p>
+                    <p>My determination and ability to solve challenging tasks allow me to remain open to new challenges and opportunities. In my free time, I engage in sports, particularly swimming and cycling, which help me stay fit. I also enjoy reading books and drawing, which give me the chance to relax and immerse myself in the world of creativity.</p>
+                </section>
+
+                <section class="service">
+                    <h3 class="h3 service-title">My skills</h3>
+
+                    <ul class="service-list">
+                        <li class="service-item">
+                            <div class="service-content-box">
+                                <h4 class="h4 service-item-title">Web development</h4>
+                                <p class="service-item-text">High-quality development of sites at the professional level.</p>
+                            </div>
+                        </li>
+                        <li class="service-item">
+                            <div class="service-content-box">
+                                <h4 class="h4 service-item-title">Web Design</h4>
+                                <p class="service-item-text">The most modern and high-quality design made at a professional level.</p>
+                            </div>
+                        </li>
+                        <li class="service-item">
+                            <div class="service-content-box">
+                                <h4 class="h4 service-item-title">Mobile apps</h4>
+                                <p class="service-item-text">Professional development of applications for iOS and Android.</p>
+                            </div>
+                        </li>
+                        <li class="service-item">
+                            <div class="service-content-box">
+                                <h4 class="h4 service-item-title">Photography</h4>
+                                <p class="service-item-text">I make high-quality photos of any category at a professional level.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+            </article>
+            
+            <article class="resume " data-page="resume">
+                <header>
+                    <h2 class="h2 article-title">Resume</h2>
+                </header>
+
+                <section class="timeline">
+                    <div class="title-wrapper">
+                        <div class="icon-box"><ion-icon name="book-outline"></ion-icon></div>
+
+                        <h3 class="h3">Education</h3>
+                    </div>
+
+                    <ol class="timeline-list">
+                        <li class="timeline-item">
+                            <h4 class="h4 timeline-item-title">University school of the arts</h4>
+                            <span>2008 - 2010</span>
+                            <p class="timeline-text">There I learnt a wide range of topics that are essential to understanding both the theory and practical aspects of computing. This involves programming fundamentals, computer architecture, operating systems, databases, software engineering, problem solving, collaboration and communication soft skills.</p>
+                        </li>
+
+                        <li class="timeline-item">
+                            <h4 class="h4 timeline-item-title">New York Academy of Art</h4>
+                            <span>2006 - 2007</span>
+                            <p class="timeline-text">I chose my master degree in technology. There I deepened my knowledge, enhanced my skills in the area and learnt how to increase my career prospects in a competitive job market.</p>
+                        </li>
+
+                        <li class="timeline-item">
+                            <h4 class="h4 timeline-item-title">High School of Art and Design</h4>
+                            <span>2003 - 2005</span>
+                            <p class="timeline-text">There I learnt foundational courses and computer sciences fundamentals. In the institution, I chose my specialization in web-development that involves front-end and back-end technologies, user interface designs and content management systems.</p>
+                        </li>
+                    </ol>
+                </section>
+
+                <section class="timeline">
+                    <div class="title-wrapper">
+                        <div class="icon-box"><ion-icon name="book-outline"></ion-icon></div>
+
+                        <h3 class="h3">Experience</h3>
+                    </div>
+
+                    <ol class="timeline-list">
+                        <li class="timeline-item">
+                            <h4 class="h4 timeline-item-title">Creative director</h4>
+                            <span>2015 - Present</span>
+                            <p class="timeline-text">I can develop and oversee creative concepts for projects and campaigns managing a team of designers, writers, and other creative professionals.</p>
+                        </li>
+
+                        <li class="timeline-item">
+                            <h4 class="h4 timeline-item-title">Art director</h4>
+                            <span>2013 - 2015</span>
+                            <p class="timeline-text">I create and develop visual concepts that align with the project's goals and objectives, supervising the design process and managing timelines and budgets for design projects.</p>
+                        </li>
+
+                        <li class="timeline-item">
+                            <h4 class="h4 timeline-item-title">Web designer</h4>
+                            <span>2010 - 2013</span>
+                            <p class="timeline-text">I create logos, color schemes and typography for a brand's identity. Also I develop graphics for websites, social media and digital ads with applications that enhance user experience.</p>
+                        </li>
+                    </ol>
+                </section>
+
+                <section class="skill">
+                    <h3 class="h3 skills-title">My Skills</h3>
+
+                    <ul class="skills-list content-card">
+                        <li class="skills-item">
+                            <div class="title-wrapper">
+                                <h5 class="h5">Web Design</h5>
+                                <data value="80">80%</data>
+                            </div>
+
+                            <div class="skills-progress-bg">
+                                <div class="skills-progress-fill" style="width: 80%;"></div>
+                            </div>
+                        </li>
+
+                        <li class="skills-item">
+                            <div class="title-wrapper">
+                                <h5 class="h5">Graphic Design</h5>
+                                <data value="70">70%</data>
+                            </div>
+
+                            <div class="skills-progress-bg">
+                                <div class="skills-progress-fill" style="width: 70%;"></div>
+                            </div>
+                        </li>
+
+                        <li class="skills-item">
+                            <div class="title-wrapper">
+                                <h5 class="h5">Branding</h5>
+                                <data value="90">90%</data>
+                            </div>
+
+                            <div class="skills-progress-bg">
+                                <div class="skills-progress-fill" style="width: 90%;"></div>
+                            </div>
+                        </li>
+
+                        <li class="skills-item">
+                            <div class="title-wrapper">
+                                <h5 class="h5">WordPress</h5>
+                                <data value="50">50%</data>
+                            </div>
+
+                            <div class="skills-progress-bg">
+                                <div class="skills-progress-fill" style="width: 50%;"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+            </article>
+
+            <article class="portfolio " data-page="portfolio">
+                <header>
+                    <h2 class="h2 article-title">Portfolio</h2>
+                </header>
+
+                <section class="projects">
+                    <ul class="filter-list">
+                        <li class="filter-item"><button class="active" data-filter-btn>All</button></li>
+                        <li class="filter-item"><button data-filter-btn>Web Design</button></li>
+                        <li class="filter-item"><button data-filter-btn>Applications</button></li>
+                        <li class="filter-item"><button data-filter-btn>Web Development</button></li>
+                    </ul>
+
+                    <div class="filter-select-box">
+                        <button class="filter-select " data-select>
+                            <div class="select-value" data-select-value>Select Category</div>
+
+                            <div class="select-icon">
+                                <ion-icon name="chevron-down"></ion-icon>
+                            </div>
+                        </button>
+
+                        <ul class="select-list">
+                            <li class="select-item"><button data-select-item>All</button></li>
+                            <li class="select-item"><button data-select-item>Web Design</button></li>
+                            <li class="select-item"><button data-select-item>Applications</button></li>
+                            <li class="select-item"><button data-select-item>Web Development</button></li>
+                        </ul>
+                    </div>
+
+                    <ul class="project-list">
+                        <li class="project-item active" data-filter-item data-category="web development">
+                            <a href="#">
+                                <figure class="project-img">
+                                    <div class="project-item-icon-box">
+                                        <ion-icon name="eye-outline"></ion-icon>
+                                    </div>
+
+                                    <img src="https://i.postimg.cc/qRHpHMyd/project-1.jpg" alt="finance" loading="lazy">
+                                </figure>
+
+                                <h3 class="project-title">Finance</h3>
+                                <p class="project-category">Web Development</p>
+                            </a>
+                        </li>
+
+                        <li class="project-item active" data-filter-item data-category="web development">
+                            <a href="#">
+                                <figure class="project-img">
+                                    <div class="project-item-icon-box">
+                                        <ion-icon name="eye-outline"></ion-icon>
+                                    </div>
+
+                                    <img src="https://i.postimg.cc/bNrcM2Wt/project-2.png" alt="orizon" loading="lazy">
+                                </figure>
+
+                                <h3 class="project-title">Orizon</h3>
+                                <p class="project-category">Web Development</p>
+                            </a>
+                        </li>
+
+                        <li class="project-item active" data-filter-item data-category="web design">
+                            <a href="#">
+                                <figure class="project-img">
+                                    <div class="project-item-icon-box">
+                                        <ion-icon name="eye-outline"></ion-icon>
+                                    </div>
+
+                                    <img src="https://i.postimg.cc/jSJVqYsq/project-3.jpg" alt="fundo" loading="lazy">
+                                </figure>
+
+                                <h3 class="project-title">Fundo</h3>
+                                <p class="project-category">Web Design</p>
+                            </a>
+                        </li>
+
+                        <li class="project-item active" data-filter-item data-category="applications">
+                            <a href="#">
+                                <figure class="project-img">
+                                    <div class="project-item-icon-box">
+                                        <ion-icon name="eye-outline"></ion-icon>
+                                    </div>
+
+                                    <img src="https://i.postimg.cc/dtpXxNGb/project-4.png" alt="brawlhalla" loading="lazy">
+                                </figure>
+
+                                <h3 class="project-title">Brawlhalla</h3>
+                                <p class="project-category">Applications</p>
+                            </a>
+                        </li>
+
+                        <li class="project-item active" data-filter-item data-category="web design">
+                            <a href="#">
+                                <figure class="project-img">
+                                    <div class="project-item-icon-box">
+                                        <ion-icon name="eye-outline"></ion-icon>
+                                    </div>
+
+                                    <img src="https://i.postimg.cc/43T0JKLw/project-5.png" alt="dsm." loading="lazy">
+                                </figure>
+
+                                <h3 class="project-title">DSM.</h3>
+                                <p class="project-category">Web Design</p>
+                            </a>
+                        </li>
+
+                        <li class="project-item active" data-filter-item data-category="web design">
+                            <a href="#">
+                                <figure class="project-img">
+                                    <div class="project-item-icon-box">
+                                        <ion-icon name="eye-outline"></ion-icon>
+                                    </div>
+
+                                    <img src="https://i.postimg.cc/qR1DX1kZ/project-6.png" alt="metaspark" loading="lazy">
+                                </figure>
+
+                                <h3 class="project-title">Metaspark</h3>
+                                <p class="project-category">Web Design</p>
+                            </a>
+                        </li>
+
+                        <li class="project-item active" data-filter-item data-category="web development">
+                            <a href="#">
+                                <figure class="project-img">
+                                    <div class="project-item-icon-box">
+                                        <ion-icon name="eye-outline"></ion-icon>
+                                    </div>
+
+                                    <img src="https://i.postimg.cc/Kj4q9tjc/project-7.png" alt="summary" loading="lazy">
+                                </figure>
+
+                                <h3 class="project-title">Summary</h3>
+                                <p class="project-category">Web Development</p>
+                            </a>
+                        </li>
+
+                        <li class="project-item active" data-filter-item data-category="applications">
+                            <a href="#">
+                                <figure class="project-img">
+                                    <div class="project-item-icon-box">
+                                        <ion-icon name="eye-outline"></ion-icon>
+                                    </div>
+
+                                    <img src="https://i.postimg.cc/rw2j4B1w/project-8.jpg" alt="task manager" loading="lazy">
+                                </figure>
+
+                                <h3 class="project-title">Task Manager</h3>
+                                <p class="project-category">Applications</p>
+                            </a>
+                        </li>
+
+                        <li class="project-item active" data-filter-item data-category="web development">
+                            <a href="#">
+                                <figure class="project-img">
+                                    <div class="project-item-icon-box">
+                                        <ion-icon name="eye-outline"></ion-icon>
+                                    </div>
+
+                                    <img src="https://i.postimg.cc/7LxNsSQv/project-9.png" alt="arrival" loading="lazy">
+                                </figure>
+
+                                <h3 class="project-title">Arrival</h3>
+                                <p class="project-category">Web Development</p>
+                            </a>
+                        </li>
+                    </ul>
+                </section>
+            </article>
+
+            <article class="blog " data-page="blog">
+                <header>
+                    <h2 class="h2 article-title">Blog</h2>
+                </header>
+
+                <section class="blog-posts">
+                    <ul class="blog-posts-list">
+                        <li class="blog-post-item">
+                            <a href="#">
+                                    <figure class="blog-banner-box">
+                                        <img src="https://i.postimg.cc/DysCZrWs/blog-1.jpg" alt="Design conferences in 2024" loading="lazy">
+                                    </figure>
+
+                                <div class="blog-content">
+                                    <div class="blog-meta">
+                                        <p class="blog-category">Design</p>
+                                        <span class="dot"></span>
+                                        <time datetime="2024-02-23">Feb 23, 2024</time>
+                                    </div>
+
+                                    <h3 class="h3 blog-item-title">Design conferences in 2024</h3>
+                                    <p class="blog-text">In 2024, several exciting design conferences are set to take place, offering opportunities for professionals and enthusiasts to connect, learn, and share innovative ideas.</p>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li class="blog-post-item">
+                            <a href="#">
+                                <figure class="blog-banner-box">
+                                    <img src="https://i.postimg.cc/QC7qFDMs/blog-2.jpg" alt="Best fonts every designer" loading="lazy">
+                                </figure>
+
+
+                                <div class="blog-content">
+                                    <div class="blog-meta">
+                                        <p class="blog-category">Design</p>
+                                        <span class="dot"></span>
+                                        <time datetime="2024-01-29">Jan 29, 2024</time>
+                                    </div>
+
+                                    <h3 class="h3 blog-item-title">Best fonts every designer</h3>
+                                    <p class="blog-text">When it comes to typography, choosing the right font is essential for effective design. In this article, I'll bring a brief overview of some of the best fonts that every designer should consider incorporating into their toolkit.</p>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li class="blog-post-item">
+                            <a href="#">
+                                <figure class="blog-banner-box">
+                                    <img src="https://i.postimg.cc/W1T71QcL/blog-3.jpg" alt="Design digest #80" loading="lazy">
+                                </figure>
+
+                                <div class="blog-content">
+                                    <div class="blog-meta">
+                                        <p class="blog-category">Design</p>
+                                        <span class="dot"></span>
+                                        <time datetime="2023-12-20">Dec 20, 2023</time>
+                                    </div>
+
+                                    <h3 class="h3 blog-item-title">Design digest #80</h3>
+                                    <p class="blog-text">Hello, my friends. In this Design Digest, I'll show you a curated collection of the latest trends, insights, and innovations in the design world. This edition highlights key themes and discussions that are shaping the future of design.</p>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li class="blog-post-item">
+                            <a href="#">
+                                <figure class="blog-banner-box">
+                                    <img src="https://i.postimg.cc/2S0n8yxh/blog-4.jpg" alt="2023 UI interactions" loading="lazy">
+                                </figure>
+
+                                <div class="blog-content">
+                                    <div class="blog-meta">
+                                        <p class="blog-category">Design</p>
+                                        <span class="dot"></span>
+                                        <time datetime="2023-11-29">Nov 29, 2023</time>
+                                    </div>
+
+                                    <h3 class="h3 blog-item-title">2023 UI interactions</h3>
+                                    <p class="blog-text">As we move into 2024, 2023 was marked by the rapidly evolution of the landscape of UI interactions, driven by advancements in technology and user expectations. Dive with me in this text to see the main areas changed in this year.</p>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li class="blog-post-item">
+                            <a href="#">
+                                <figure class="blog-banner-box">
+                                    <img src="https://i.postimg.cc/YCCmVkw9/blog-5.jpg" alt="The forgotten art of spacing" loading="lazy">
+                                </figure>
+
+                                <div class="blog-content">
+                                    <div class="blog-meta">
+                                        <p class="blog-category">Design</p>
+                                        <span class="dot"></span>
+                                        <time datetime="2023-11-12">Nov 12, 2023</time>
+                                    </div>
+
+                                    <h3 class="h3 blog-item-title">The forgotten art of spacing</h3>
+                                    <p class="blog-text">In the realm of design, spacing is often an overlooked yet crucial element that can significantly impact the overall aesthetic and functionality of a composition. This post will emphasize the importance of white space, margins, and padding in creating visually appealing and effective designs.</p>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li class="blog-post-item">
+                            <a href="#">
+                                <figure class="blog-banner-box">
+                                    <img src="https://i.postimg.cc/zBCBvP16/blog-6.jpg" alt="Design digest #79" loading="lazy">
+                                </figure>
+
+                                <div class="blog-content">
+                                    <div class="blog-meta">
+                                        <p class="blog-category">Design</p>
+                                        <span class="dot"></span>
+                                        <time datetime="2023-10-20">Oct 20, 2023</time>
+                                    </div>
+
+                                    <h3 class="h3 blog-item-title">Design digest #79</h3>
+                                    <p class="blog-text">Hi, my friends. In this Design Digest I'll focus in the tools and resources that we use daily in our projects. Also, I'll include examples of software recommendations, online courses, and design communities that foster collaboration and learning.</p>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </section>
+            </article>
+
+            <article class="contact " data-page="contact">
+                <header>
+                    <h2 class="h2 article-title">Contact</h2>
+                </header>
+
+                <section class="mapbox" data-mapbox>
+                    <figure>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d199666.5651251294!2d-121.58334177520186!3d38.56165006739519!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x809ac672b28397f9%3A0x921f6aaa74197fdb!2sSacramento%2C%20CA%2C%20USA!5e0!3m2!1sen!2sbd!4v1647608789441!5m2!1sen!2sbd"
+                         width="400" height="300" loading="lazy"></iframe>
+                    </figure>
+                </section>
+
+                <section class="contact-form">
+                    <h3 class="h3 form-title">Contact Form</h3>
+
+                    <form action="#" class="form" data-form>
+                        <div class="input-wrapper">
+                            <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
+                            <input type="email" name="email" class="form-input" placeholder="Email Address" required data-form-input>
+                        </div>
+
+                        <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input=""></textarea>
+
+                        <button class="form-btn" type="submit" disabled data-form-btn>
+                            <ion-icon name="paper-plane"></ion-icon>
+                            <span>Send Message</span>
+                        </button>
+                    </form>
+                </section>
+            </article>
+        </div>
+    </main>
+
+    <script src="main.js"></script>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>
