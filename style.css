@@ -148,7 +148,8 @@ main {
     contain: paint size layout;
     height: 100%;
     left: 0;
-    mix-blend-mode: exclusion;
+    /* mix-blend-mode: exclusion; */
+    mix-blend-mode: lighten;
     opacity: .55;
     position: absolute;
     top: 0;
