@@ -472,6 +472,14 @@ article.active {
     line-height: 1.6;
     border: 6px solid #000;
     background: #d9d9d9;
+    box-shadow: 12px 12px 0 #000;
+    transition: all 0.3s;
+}
+
+.about-text:hover, .about-text:hover {
+    background: #bbbbbb;
+    transform: translate(-5px, -5px);
+    box-shadow: 17px 17px 0 #000;
 }
 
 .about .article-title {
@@ -512,12 +520,18 @@ article.active {
 
     border: 6px solid #000;
     box-shadow: 12px 12px 0 #000;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: all 0.3s;
+}
+
+.service-card:hover {
+    background: #191919;
+    color: #ffc900;
 }
 
 .service-item:hover, .service-item:hover {
     transform: translate(-5px, -5px);
     box-shadow: 17px 17px 0 #000;
+    background: #bbbbbb;
 }
 
 .service-icon-box { margin-bottom: 10px; }

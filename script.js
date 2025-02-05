@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.addEventListener('scroll', function() {
         customCursor.style.transform = `translate(${e.clientX + window.scrollX}px, ${e.clientY + window.scrollY}px)`;
     });
-    document.querySelectorAll('a, button').forEach(element => {
+    document.querySelectorAll('a, button, .service-card').forEach(element => {
         element.addEventListener('mouseover', () => {
             pointerCursor.style.display = 'none';
             pointerHand.style.display = 'block';
