@@ -535,6 +535,22 @@ article.active {
     padding-left: 10px;
 }
 
+.resume .article-title {
+    margin-bottom: 20px;
+    margin-top: 15px;
+    background: #d9d9d9;
+    border: solid 6px #000;
+    padding-left: 10px;
+}
+
+.portfolio .article-title {
+    margin-bottom: 20px;
+    margin-top: 15px;
+    background: #d9d9d9;
+    border: solid 6px #000;
+    padding-left: 10px;
+}
+
 .about-text p { 
     margin-bottom: 15px;
     text-align: justify;
@@ -1483,6 +1499,18 @@ textarea.form-input::-webkit-realizer { display: none; }
     }
 
     .about .article-title { 
+        margin-top: 50px;
+    }
+
+    .blog .article-title {
+        margin-top: 50px;
+    }
+
+    .portfolio .article-title {
+        margin-top: 50px;
+    }
+
+    .resume .article-title {
         margin-top: 50px;
     }
 
