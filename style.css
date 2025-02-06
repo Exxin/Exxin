@@ -21,8 +21,9 @@
     --light-gray70: hsla(0, 0%, 84%, .7);
     --bittersweet-shimmer: hsl(0, 43%, 51%);
 
-    --ff-poppins: "Roboto Mono", serif;
+    --ff-poppins: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace;
     /* "Roboto Mono", serif; */
+    /* SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace; */
 
     --fs1: 24px;
     --fs2: 18px;
@@ -501,7 +502,7 @@ article.active {
 
 /*ABOUT*/
 
-.about-text {
+.about-text p {
     color: #191919;
     font-size: var(--fs6);
     font-weight: var(--fw300);

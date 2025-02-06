@@ -221,19 +221,6 @@ const assassin = String.raw`
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%=:::::::::.:..      :=+***++:     :+*+==**+#%*=::      :.                                                            :  :-=*****+                   ..::.:..::.:..:.:....
 `;
 
-const exxin = String.raw`
-
-	#############  #### 	 ####	#### 	  ####	#####	##### 	 ##### 
-	#############   ####  	####     ####  	 #### 	#####	###### 	 ##### 
-	#####			 ####  ####		  ####  ####	#####	#######  ##### 
-	############# 	  ########	 	   ########		#####	############## 
-	############# 	  ########	 	   ########		#####	##### ######## 
-	#####			 ####  ####	 	  ####  ####	#####	#####  ####### 
-	#############   ####	#### 	 ####	 ####	#####	##### 	###### 
-	#############  ####		 ####	####	  #### 	#####	##### 	 ##### 
-
-`;
-
 let blink = document.querySelector('.blink');
 const code = document.querySelector('.code');
 
@@ -294,7 +281,7 @@ const DrawCommands = async commands => {
 	await DrawLines( assassin );
 	await TypeString("\n\nWanna listen a music? SCATTLE - ASSASSIN");
 	await Delay(3000);
-	ResetTerminal();
-	await DrawCommands('exxinblood@gmail.com:~ KEY=3db7ca618243da1ba3bc76ab14bcf07b node exxin.js');
-	await DrawLines(exxin);
+	// ResetTerminal();
+	// await DrawCommands('exxinblood@gmail.com:~ KEY=3db7ca618243da1ba3bc76ab14bcf07b node exxin.js');
+	// await DrawLines(exxin);
 })();
