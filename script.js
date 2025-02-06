@@ -276,11 +276,14 @@ const DrawCommands = async commands => {
 	await Delay(5000);
 	RenderString("\n");
 	await DrawCommands(commands);
-	RenderString('\nconsole.js    exxin.js\n\n');
-	await DrawCommands('exxinblood@gmail.com/MAIN:~ node console.js');
+	RenderString('\nassassin.js    exxin.js\n\n');
+	await DrawCommands('exxinblood@gmail.com/MAIN:~ node assassin.js');
+	ResetTerminal();
+	await Delay(3000);
+	await DrawCommands('exxinblood@gmail.com/MAIN:~ node assassin.js');
 	await DrawLines( assassin );
 	await TypeString("\n\nWanna listen a music? SCATTLE - ASSASSIN");
-	await Delay(3000);
+	await Delay(5000);
 	// ResetTerminal();
 	// await DrawCommands('exxinblood@gmail.com:~ KEY=3db7ca618243da1ba3bc76ab14bcf07b node exxin.js');
 	// await DrawLines(exxin);
