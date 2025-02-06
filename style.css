@@ -48,6 +48,44 @@
     --transition2: .5s ease-in-out;
 }
 
+.typing-wrapper {
+    font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+    background-color: #0f000f;
+    background-size: 100px;
+    color: purple;
+    /* height: 100%; */
+    height: 560px;
+    height: 560px;
+}
+
+p,
+pre {
+  font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace;
+  /* font-size: 7px; */
+  font-size: 3px;
+  line-height: 1;
+  margin: 0;
+  display: block;
+  padding: 5px;
+}
+
+.blink {
+  opacity: 1;
+  animation: blink 1s linear infinite;
+}
+
+.scanline {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.02);
+  animation: scanline 8s linear infinite;
+  pointer-events: none;
+}
+
 *, *::before, *::after {
     margin: 0;
     padding: 0;
@@ -138,22 +176,6 @@ main {
     z-index: 1000;
 }
 
-.cubes {
-    background-image: url(./img/cube.svg);
-    background-size: 64px;
-    contain: paint size layout;
-    height: 100%;
-    left: 0;
-    mix-blend-mode: exclusion;
-    /* mix-blend-mode: lighten; */
-    opacity: .55;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    will-change: background-position;
-    animation: scrollUp 10s linear infinite;
-    z-index: -1;
-}
 .cubes-canvas {
     height: 100%;
     left: 0;
