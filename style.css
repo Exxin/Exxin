@@ -59,7 +59,7 @@
     height: 720px;
 }
 
-pre {
+pre, .decoding-container {
   font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace;
   /* font-size: 7px; */
   font-size: 2.95px;;
