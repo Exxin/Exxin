@@ -1417,7 +1417,8 @@ textarea.form-input::-webkit-realizer { display: none; }
 @media (min-width: 768px) {
 
     .p,
-    pre {
+    pre,
+    .decoding-container {
         font-size: 5.7px;
     }
 
@@ -1481,7 +1482,8 @@ textarea.form-input::-webkit-realizer { display: none; }
     }
 
     .p,
-    pre {
+    pre,
+    .decoding-container {
         font-size: 7.7px;
     }
 
@@ -1566,7 +1568,8 @@ textarea.form-input::-webkit-realizer { display: none; }
 
 @media (min-width: 1250px) {
     .p,
-    pre {
+    pre,
+    .decoding-container {
         font-size: 7.7px;
     }
 
