@@ -486,9 +486,9 @@ function startTerminal() {
       RenderString("exxinblood@gmail.com password:");
       await Delay(3000);
       await TypePassword(15);
-      RenderString("\n");
+      RenderString("\n ");
       await Delay(5000);
-      RenderString("\n");
+      RenderString("\n ");
       await DrawCommands(commands);
       RenderString('\nexxin.js    assassin.js\n\n');
       await Delay(3000);
@@ -497,7 +497,7 @@ function startTerminal() {
       await LoadingBar("Loading exxin.js");
       // await DrawLines(exxin);
       await DrawAllLinesDecoding(exxin);
-      RenderString("\n");
+      RenderString("\n ");
       await Delay(3000);
       ResetTerminal();
       await Delay(3000);
@@ -505,10 +505,10 @@ function startTerminal() {
       await LoadingBar("Loading assassin.js");
       // await DrawLines( assassin );
       await DrawAllLinesDecoding(assassin);
-      RenderString("\n");
+      RenderString("\n ");
       await Delay(2000);
       await TypeString("\n\nWanna listen a music? SCATTLE - ASSASSIN.mp3");
-      RenderString("\n");
+      RenderString("\n ");
       await PlayMusic("SCATTLE - ASSASSIN.mp3");
     })();
   }
