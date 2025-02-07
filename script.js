@@ -242,15 +242,104 @@ const assassin = String.raw`
 ############*######*###*#*#*#****#****#**#******************+*****+***+*+*+*+*+*+*+++++++*+++++-=+.:.:.:+.-+=+--..  .:..:=+=..-                                                               :--
 `;
 
+const exxin = String.raw`
+	#############  #### 	 ####	#### 	  ####	#####	##### 	 ##### 
+	#############   ####  	####     ####  	 #### 	#####	###### 	 ##### 
+	#####            ####  ####       ####  ####	#####	#######  ##### 
+	############# 	  ########         ########     #####	############## 
+	############# 	  ########         ########     #####	##### ######## 
+	#####            ####  ####       ####  ####	#####	#####  ####### 
+	#############   ####    #### 	 ####	 ####	#####   ##### 	###### 
+	#############  ####      ####	####	  #### 	#####	##### 	 ##### 
+`;
+
+
 let blink = document.querySelector('.blink');
 const code = document.querySelector('.code');
 
-const RandomNumber = (min, max) => {
-	return Math.floor(Math.random() * max) + min
-};
+// Допоміжні функції
 
-const Delay = (time) => {
-	return new Promise((resolve) => setTimeout(resolve, time))
+// Функція затримки
+const Delay = ms => new Promise(resolve => setTimeout(resolve, ms));
+
+// Функція, що повертає випадкове число між min (включно) та max (виключно)
+const RandomNumber = (min, max) => Math.floor(Math.random() * (max - min)) + min;
+
+// Рядок символів для генерації випадкових символів
+const randomChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+[]{}|;:,.<>/?";
+
+// Функція для отримання випадкового символу із randomChars
+function getRandomChar() {
+  return randomChars.charAt(Math.floor(Math.random() * randomChars.length));
+}
+
+/**
+ * Анімована дешифрування окремого рядка (конкурентна версія).
+ * @param {string} finalLine - Остаточний текст рядка.
+ * @param {number} index - Індекс рядка в масиві decoded.
+ * @param {Array} decoded - Масив, що містить поточний стан кожного рядка.
+ * @param {number} delay - Затримка між ітераціями (мс).
+ * @param {number} iterations - Кількість ітерацій анімації.
+ */
+async function animateLineDecodingConcurrent(finalLine, index, decoded, delay, iterations, container) {
+    // Початковий стан рядка: випадкові символи (залишаємо пробіли незмінними)
+    let current = Array.from(finalLine).map(ch => ch === ' ' ? ' ' : getRandomChar());
+    
+    for (let iter = 0; iter < iterations; iter++) {
+      for (let i = 0; i < finalLine.length; i++) {
+        if (finalLine[i] === ' ') {
+          current[i] = ' ';
+        } else {
+          // Зі збільшенням ітерації збільшується ймовірність, що правильний символ "розблоковується"
+          if (Math.random() < iter / iterations) {
+            current[i] = finalLine[i];
+          } else {
+            current[i] = getRandomChar();
+          }
+        }
+      }
+      // Оновлюємо відповідний рядок у глобальному масиві decoded
+      decoded[index] = current.join('');
+      // Оновлюємо вміст контейнера для анімації
+      container.textContent = decoded.join('\n');
+      await Delay(delay);
+    }
+    // В кінці гарантуємо, що рядок буде остаточним
+    decoded[index] = finalLine;
+    container.textContent = decoded.join('\n');
+}
+
+/**
+ * Функція, яка анімовано дешифрує всі рядки одночасно.
+ * Всі рядки відразу з'являються в контейнері, а їх "розшифрування" відбувається паралельно.
+ * @param {string} text - Остаточний текст (ASCII‑арт), розбитий на рядки.
+ * @param {number} delay - Затримка між ітераціями для кожного рядка (мс).
+ * @param {number} iterations - Кількість ітерацій для кожного рядка.
+ */
+const DrawAllLinesDecoding = async (text, delay = 200, iterations = 20) => {
+    // Створюємо новий елемент для анімації (наприклад, <pre> для збереження форматування)
+    const decodingContainer = document.createElement('pre');
+    decodingContainer.className = "decoding-container";
+    // Додаємо цей контейнер до вже існуючого (code)
+    code.appendChild(decodingContainer);
+    
+    const lines = text.split('\n');
+    const decoded = lines.map(line =>
+      Array.from(line).map(ch => ch === ' ' ? ' ' : getRandomChar()).join('')
+    );
+    
+    // Відразу відображаємо всі рядки в контейнері для анімації
+    decodingContainer.textContent = decoded.join('\n');
+    
+    // Запускаємо анімацію дешифрування для кожного рядка одночасно
+    await Promise.all(
+      lines.map((finalLine, index) =>
+        animateLineDecodingConcurrent(finalLine, index, decoded, delay, iterations, decodingContainer)
+      )
+    );
+    
+    // Після завершення анімації залишаємо остаточний текст в контейнері анімації
+    decodingContainer.textContent = lines.join('\n');
 };
 
 const ResetTerminal = () => {
@@ -270,7 +359,7 @@ const TypeString = async characters => {
 	}
 }
 
-const DrawLines = async ( characters, min = 50, max = 200 ) => {
+const DrawLines = async ( characters, min = 50, max = 300 ) => {
 	for(const line of characters.split('\n')) {
 		await Delay(RandomNumber(min, max));
 		RenderString(`${line}\n`);
@@ -289,26 +378,138 @@ const DrawCommands = async commands => {
 	}
 }
 
+const GenerateRandomKey = () => {
+    return [...Array(32)].map(() => Math.floor(Math.random() * 16).toString(16)).join("");
+  };
+  
+
+const PlayMusic = async (trackName) => {
+    await Delay(1000);
+    RenderString(`\n\nPlaying: ${trackName}...\n`);
+    for (let i = 0; i < 5; i++) {
+      await Delay(500);
+      RenderString(".");
+    }
+    RenderString("\n");
+};
+
+const DrawColoredLines = async (characters, color, min = 50, max = 200) => {
+    for (const line of characters.split('\n')) {
+        await Delay(RandomNumber(min, max));
+        // Обертаємо рядок в <span> із заданим кольором та додаємо <br> для перенесення рядка
+        RenderString(`<span style="color: ${color};">${line}</span>`);
+    }
+};
+
+const LoadingBar = async (text, length = 20) => {
+    RenderString(`${text} [`);
+    for (let i = 0; i < length; i++) {
+      await Delay(RandomNumber(100, 300));
+      RenderString("#");
+    }
+    RenderString("] Done!\n");
+};
+
+const TypePassword = async length => {
+    for (let i = 0; i < length; i++) {
+      await Delay(RandomNumber(100, 200));
+      RenderString("*");
+    }
+};
 
 // Start the code
-(async()=> {
-	await DrawCommands("/:~ ssh exxinblood@gmail.com -p 1998");
-	await Delay(1000);
-	RenderString("exxinblood@gmail.com password:");
-    await Delay(3000);
-    await TypeString("***************");
-    RenderString("\n");
-	await Delay(5000);
-	RenderString("\n");
-	await DrawCommands(commands);
-	RenderString('\nassassin.js    exxin.js\n\n');
-	await DrawCommands('exxinblood@gmail.com/MAIN:~ node assassin.js');
-	await DrawLines( assassin );
-	await TypeString("\n\nWanna listen a music? SCATTLE - ASSASSIN.mp3");
-    RenderString("\n");
-    await TypeString("\n\nSCATTLE - ASSASSIN.mp3");
-	// await Delay(5000);
-	// ResetTerminal();
-	// await DrawCommands('exxinblood@gmail.com:~ KEY=3db7ca618243da1ba3bc76ab14bcf07b node exxin.js');
-	// await DrawLines(exxin);
-})();
+// (async()=> {
+// 	await DrawCommands("/:~ ssh exxinblood@gmail.com -p 1998");
+// 	await Delay(1000);
+// 	RenderString("exxinblood@gmail.com password:");
+//     await Delay(3000);
+//     await TypePassword(15);
+//     RenderString("\n");
+// 	await Delay(5000);
+// 	RenderString("\n");
+// 	await DrawCommands(commands);
+// 	RenderString('\nexxin.js    assassin.js\n\n');
+//     await Delay(3000);
+//     await DrawCommands(`exxinblood@gmail.com:~ KEY=${GenerateRandomKey()} node exxin.js`);
+//     await Delay(3000);
+//     await LoadingBar("Loading exxin.js");
+//     // await DrawLines(exxin);
+//     DrawAllLinesDecoding(exxin);
+//     RenderString("\n");
+//     await Delay(10000);
+//     ResetTerminal();
+//     await Delay(3000);
+// 	await DrawCommands(`exxinblood@gmail.com/MAIN:~ KEY-ASSASSIN=${GenerateRandomKey()} node assassin.js`);
+//     await LoadingBar("Loading assassin.js");
+// 	// await DrawLines( assassin );
+//     DrawAllLinesDecoding(assassin);
+//     RenderString("\n");
+//     await Delay(8000);
+// 	await TypeString("\n\nWanna listen a music? SCATTLE - ASSASSIN.mp3");
+//     RenderString("\n");
+//     await PlayMusic("SCATTLE - ASSASSIN.mp3");
+// })();\
+
+// Функція, що запускає термінал, коли елемент з класом .code стає видимим
+function setupTerminalObserver() {
+    const target = document.querySelector('.code');
+    
+    // Налаштування обсерверу: threshold 0.5 означає, що коли 50% елемента видно
+    const observerOptions = {
+      threshold: 0.5
+    };
+    
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Запускаємо термінал
+          startTerminal();
+          // Відключаємо обсервер, щоб запустити код лише один раз
+          observer.disconnect();
+        }
+      });
+    }, observerOptions);
+    
+    if (target) {
+      observer.observe(target);
+    }
+  }
+  
+  // Виклик setupTerminalObserver після завантаження сторінки
+  document.addEventListener('DOMContentLoaded', setupTerminalObserver);
+  
+
+function startTerminal() {
+    (async()=> {
+      await DrawCommands("/:~ ssh exxinblood@gmail.com -p 1998");
+      await Delay(1000);
+      RenderString("exxinblood@gmail.com password:");
+      await Delay(3000);
+      await TypePassword(15);
+      RenderString("\n");
+      await Delay(5000);
+      RenderString("\n");
+      await DrawCommands(commands);
+      RenderString('\nexxin.js    assassin.js\n\n');
+      await Delay(3000);
+      await DrawCommands(`exxinblood@gmail.com:~ KEY=${GenerateRandomKey()} node exxin.js`);
+      await Delay(3000);
+      await LoadingBar("Loading exxin.js");
+      // await DrawLines(exxin);
+      DrawAllLinesDecoding(exxin);
+      RenderString("\n");
+      await Delay(10000);
+      ResetTerminal();
+      await Delay(3000);
+      await DrawCommands(`exxinblood@gmail.com/MAIN:~ KEY-ASSASSIN=${GenerateRandomKey()} node assassin.js`);
+      await LoadingBar("Loading assassin.js");
+      // await DrawLines( assassin );
+      DrawAllLinesDecoding(assassin);
+      RenderString("\n");
+      await Delay(8000);
+      await TypeString("\n\nWanna listen a music? SCATTLE - ASSASSIN.mp3");
+      RenderString("\n");
+      await PlayMusic("SCATTLE - ASSASSIN.mp3");
+    })();
+  }
+  
